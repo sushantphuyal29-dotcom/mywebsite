@@ -3,214 +3,740 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sushant Phuyal | Web Developer</title>
-    <meta name="description" content="Portfolio of Sushant Phuyal, a BCA student and web developer based in Kathmandu, Nepal.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Sushant Phuyal — Aspiring full-stack web and game developer.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sushant Phuyal — Developer Portfolio">
+    <meta property="og:description" content="Aspiring full-stack web and game developer from Kathmandu, Nepal.">
+    <meta property="og:url" content="https://sushantphuyal10.com.np">
+    <meta name="theme-color" content="#f3f0ea">
+    <title>Sushant Phuyal — Developer Portfolio</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23141414'/><text x='50' y='66' font-size='46' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%23f3f0ea'>SP</text></svg>">
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Tailwind CSS for robust layout and styling utilities -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#f3f0ea',
+                        surface: '#ffffff',
+                        surface2: '#eae6df',
+                        dark: '#141414',
+                        muted: '#66625d',
+                        success: '#0d9488',
+                        line: 'rgba(0,0,0,0.1)'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root { --ink: #f6f5f0; --muted: #979691; --night: #161616; --panel: #232323; --orange: #f25b22; --lime: #c5f45b; --red: #ff3828; }
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background: var(--night); color: var(--ink); font-family: 'DM Sans', sans-serif; min-height: 100vh; overflow-x: hidden; }
-        body::before { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .32; background-image: radial-gradient(#666 0.6px, transparent 0.6px); background-size: 18px 18px; mask-image: linear-gradient(to bottom, black, transparent 75%); }
-        a { color: inherit; text-decoration: none; }
-        .top-nav { position: fixed; top: 28px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; align-items: center; gap: 22px; padding: 9px 17px 9px 10px; background: rgba(35,35,35,.92); border: 1px solid #3a3a3a; border-radius: 999px; box-shadow: 0 12px 35px #0005; }
-        .corner-brand { position: fixed; top: 28px; left: 30px; z-index: 11; display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font-weight: 900; }
-        .nav-logo { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: var(--lime); color: #111; font-size: .82rem; box-shadow: 0 6px 18px #0006; transition: transform .25s, background .25s; }
-        .corner-brand:hover .nav-logo, .corner-brand:focus .nav-logo { transform: rotate(-8deg) scale(1.08); background: var(--orange); }
-        .nav-name { font-size: .8rem; letter-spacing: -.02em; }
-        .top-nav a { color: var(--muted); transition: color .25s, transform .25s; }
-        .top-nav a:hover, .top-nav a:focus { color: var(--orange); transform: translateY(-2px); }
-        .project-nav { display: inline-flex; align-items: center; gap: 7px; font-size: .78rem; }
-        .project-nav span { font: 700 .68rem 'Space Mono', monospace; letter-spacing: .08em; text-transform: uppercase; }
-        .layout { position: relative; z-index: 1; display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: clamp(35px, 6vw, 78px); width: min(1100px, calc(100% - 40px)); margin: 0 auto; padding: 125px 0 90px; }
-        .profile-card { align-self: start; background: #faf9f5; color: #111; border-radius: 24px; padding: 25px; position: sticky; top: 110px; box-shadow: 16px 16px 0 var(--orange); }
-        .portrait { height: 295px; overflow: hidden; border-radius: 15px; background: #ad3a12; margin-bottom: 24px; }
-        .portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.2); mix-blend-mode: multiply; }
-        .profile-card h2 { font-size: 2rem; line-height: 1; letter-spacing: -.06em; margin-bottom: 18px; }
-        .profile-card p { color: #666; font-size: .94rem; line-height: 1.55; margin-bottom: 25px; }
-        .social-icons { display: flex; gap: 19px; color: var(--orange); font-size: 1.15rem; }
-        .social-icons a:hover { color: #111; }
-        .eyebrow { color: var(--orange); font: 700 .78rem 'Space Mono', monospace; letter-spacing: .12em; margin-bottom: 18px; }
-        .hero-title { font-size: clamp(4rem, 8.2vw, 7.2rem); letter-spacing: -.085em; line-height: .82; font-weight: 900; margin-bottom: 34px; }
-        .hero-title span { display: block; color: #393939; }
-        .description { max-width: 540px; color: var(--muted); font-size: 1.08rem; line-height: 1.65; margin-bottom: 48px; }
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; border-top: 1px solid #353535; padding-top: 24px; }
-        .stat-item h2 { font-size: clamp(2.3rem, 4vw, 3.5rem); line-height: 1; margin-bottom: 8px; }
-        .stat-item p { color: var(--muted); font: .7rem/1.45 'Space Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
-        .content-section { grid-column: 2; padding-top: 12px; }
-        .content-area { animation: rise-in .8s both; }
-        @keyframes rise-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-        .reveal.is-visible { opacity: 1; transform: translateY(0); }
-        .bubble { position: fixed; z-index: 0; width: 130px; aspect-ratio: 1; border: 1px solid #ffffff12; border-radius: 50%; background: #c5f45b08; pointer-events: none; animation: bubble-float 14s ease-in-out infinite; }
-        .bubble-one { top: 18%; left: 8%; }
-        .bubble-two { top: 62%; right: 8%; width: 190px; animation-delay: -5s; }
-        .bubble-three { bottom: 7%; left: 40%; width: 80px; animation-delay: -9s; }
-        @keyframes bubble-float { 0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .35; } 50% { transform: translate3d(18px, -28px, 0) scale(1.08); opacity: .7; } }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } .bubble { display: none; } }
-        .section-heading { font-size: 2rem; margin-bottom: 25px; letter-spacing: -.05em; }
-        .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 70px; }
-        .skill { display: flex; align-items: center; gap: 11px; min-height: 48px; padding: 10px 14px; border: 1px solid #444; border-radius: 4px; color: var(--muted); font: .75rem 'Space Mono', monospace; transition: border-color .25s, color .25s, transform .25s; }
-        .skill i { width: 20px; color: var(--lime); font-size: 1rem; text-align: center; }
-        .skill:hover { border-color: var(--orange); color: var(--ink); transform: translateY(-3px); }
-        .project { display: grid; grid-template-columns: 1fr; background: var(--panel); border: 1px solid #3b3b3b; border-radius: 12px; overflow: hidden; }
-        .project-heading { display: flex; align-items: center; gap: 12px; font-size: 2rem; letter-spacing: -.05em; margin-bottom: 18px; }
-        .project-heading i { color: var(--lime); font-size: 1.4rem; }
-        .project-copy { padding: 32px; align-self: center; }
-        .project-copy h3 { font-size: 2rem; margin: 7px 0 14px; }
-        .project-copy h3 i { color: var(--lime); margin-right: 7px; }
-        .project-copy p { color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
-        .button { display: inline-flex; align-items: center; gap: 9px; background: var(--lime); color: #111; padding: 12px 17px; border-radius: 4px; font-weight: 700; border: 0; cursor: pointer; }
-        .button:hover { background: var(--orange); color: white; }
-        .contact-section { grid-column: 2; display: grid; grid-template-columns: minmax(0, .9fr) minmax(320px, 1.1fr); gap: 48px; border-top: 1px solid #353535; padding-top: 80px; margin-top: 35px; }
-        .contact-heading { font-size: clamp(2.8rem, 5vw, 4.6rem); line-height: .95; letter-spacing: -.07em; margin-bottom: 22px; }
-        .highlight-word { color: var(--lime); display: inline-block; }
-        .contact-desc { max-width: 440px; color: var(--muted); line-height: 1.65; margin-bottom: 32px; }
-        .info-card { display: flex; align-items: center; gap: 16px; background: var(--panel); border: 1px solid #3b3b3b; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
-        .icon-box { width: 44px; height: 44px; flex: 0 0 44px; display: grid; place-items: center; border-radius: 50%; background: #303b25; color: var(--lime); }
-        .info-text h3 { font-size: .86rem; margin-bottom: 2px; }
-        .info-text p, .info-text a { color: var(--muted); font-size: .9rem; overflow-wrap: anywhere; }
-        .connect-heading { font-size: .86rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; margin: 28px 0 14px; }
-        .social-row { display: flex; gap: 10px; }
-        .social-btn { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid #444; border-radius: 50%; color: var(--orange); transition: background .25s, color .25s, transform .25s; }
-        .social-btn:hover, .social-btn:focus { background: var(--orange); color: var(--ink); transform: translateY(-3px); }
-        .contact-form-card { background: #faf9f5; color: #111; border-radius: 12px; padding: clamp(24px, 4vw, 40px); box-shadow: 12px 12px 0 var(--orange); }
-        .form-heading { font-size: 1.8rem; letter-spacing: -.05em; margin-bottom: 7px; }
-        .form-subheading { color: #666; font-size: .94rem; margin-bottom: 26px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .form-group { margin-bottom: 17px; }
-        .form-group label { display: block; font-size: .78rem; font-weight: 700; margin-bottom: 7px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; background: #fff; color: #111; font: .9rem 'DM Sans', sans-serif; outline: none; }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--orange); }
-        .form-group textarea { min-height: 120px; resize: vertical; }
-        .submit-btn { display: inline-flex; align-items: center; gap: 9px; border: 0; border-radius: 4px; padding: 13px 17px; background: #111; color: white; font-weight: 700; cursor: pointer; transition: background .25s; }
-        .submit-btn:hover, .submit-btn:focus { background: var(--orange); }
-        footer { grid-column: 2; border-top: 1px solid #353535; padding-top: 50px; margin-top: 35px; color: var(--muted); }
-        .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 42px; padding-bottom: 35px; }
-        .brand-header { display: flex; align-items: center; gap: 13px; margin-bottom: 18px; }
-        .brand-logo { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; background: var(--lime); color: #111; font-weight: 900; }
-        .brand-title h3 { color: var(--ink); font-size: 1.2rem; line-height: 1.1; }
-        .brand-title p, .footer-heading { color: var(--orange); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-        .brand-desc, .connect-desc { max-width: 330px; line-height: 1.65; font-size: .9rem; }
-        .footer-heading { margin-bottom: 18px; }
-        .footer-links { list-style: none; display: grid; gap: 11px; }
-        .footer-links a { color: var(--muted); font-size: .9rem; }
-        .footer-links a:hover { color: var(--lime); }
-        .service-item { display: flex; align-items: center; gap: 12px; margin-bottom: 13px; }
-        .service-item .icon-box { width: 34px; height: 34px; flex-basis: 34px; font-size: .8rem; }
-        .service-item span { color: var(--muted); font-size: .86rem; }
-        .copyright { border-top: 1px solid #353535; padding-top: 20px; font: .7rem 'Space Mono', monospace; }
-        .copyright a { color: var(--lime); }
-        .modal { display: none; position: fixed; inset: 0; z-index: 20; background: #000d; place-items: center; padding: 25px; }
-        .modal.open { display: grid; }
-        .modal img { max-width: min(900px, 95vw); max-height: 88vh; object-fit: contain; }
-        .modal button { position: fixed; top: 24px; right: 28px; color: white; background: none; border: 0; font-size: 2rem; cursor: pointer; }
-        @media (max-width: 800px) { .corner-brand { top: 18px; left: 18px; } .top-nav { top: 18px; } .layout { display: block; padding-top: 100px; } .profile-card { position: relative; top: auto; max-width: 430px; margin: 0 auto 70px; } .content-area { text-align: center; } .description { margin-left: auto; margin-right: auto; } .stats-grid { text-align: left; } .content-section, .contact-section, footer { margin-top: 70px; } .project { grid-template-columns: 1fr; text-align: left; } .contact-section { display: block; } .contact-form-card { margin-top: 50px; } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 560px) { .form-row, .footer-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 560px) { .skills { grid-template-columns: 1fr; } }
-        @media (max-width: 430px) { .corner-brand .nav-name { display: none; } .top-nav { gap: 15px; padding: 8px 12px; } .hero-title { font-size: 3.7rem; } .stats-grid { gap: 12px; } .stat-item p { font-size: .62rem; } .contact-heading { font-size: 2.8rem; } }
+        :root {
+            --bg: #f3f0ea;
+            --surface: #ffffff;
+            --surface2: #eae6df;
+            --text: #141414;
+            --muted: #66625d;
+            --line: rgba(0,0,0,.1);
+            --success: #0d9488;
+            --shadow: 0 20px 40px rgba(0,0,0,.06);
+            --radius: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Interactive Background Canvas Styling */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.75;
+        }
+
+        /* Ensure content is positioned above canvas */
+        nav, main, footer {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1cbc1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--muted);
+        }
+
+        .glass-nav {
+            background: rgba(243, 240, 234, 0.85);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        /* Reveal animations */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .js .reveal.show {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+            .js .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
+    <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
-    <span class="bubble bubble-one" aria-hidden="true"></span>
-    <span class="bubble bubble-two" aria-hidden="true"></span>
-    <span class="bubble bubble-three" aria-hidden="true"></span>
-    <a class="corner-brand" href="#about" aria-label="Sushant Phuyal home"><span class="nav-logo">SP</span><span class="nav-name">Sushant</span></a>
-    <nav class="top-nav" aria-label="Primary navigation">
-        <a href="#about" aria-label="About"><i class="fa-solid fa-house"></i></a>
-        <a href="#skills" aria-label="Skills"><i class="fa-solid fa-wrench"></i></a>
-        <a class="project-nav" href="#work" aria-label="Project"><i class="fa-solid fa-folder"></i><span>Project</span></a>
-        <a href="#contact" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a>
+<body class="bg-bg text-dark antialiased selection:bg-dark selection:text-bg">
+
+    <!-- Interactive Ambient Background Canvas -->
+    <canvas id="bgCanvas"></canvas>
+
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-black/10 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3.5 font-display font-bold text-lg group">
+                <div class="w-11 h-11 rounded-2xl bg-surface border border-black/15 shadow-sm text-dark flex items-center justify-center font-display font-bold text-base tracking-tighter relative transition-all duration-300 group-hover:-rotate-6 group-hover:border-dark">
+                    <span class="text-dark">SP</span>
+                    <span class="absolute -right-1 -top-1 w-3.5 h-3.5 rounded-full bg-success border-2 border-bg animate-pulse"></span>
+                </div>
+                <span class="tracking-tight text-dark font-display font-bold">Sushant Phuyal</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <ul class="hidden md:flex items-center gap-8 list-none font-medium text-sm text-muted">
+                <li><a href="#home" class="hover:text-dark transition-colors">Home</a></li>
+                <li><a href="#about" class="hover:text-dark transition-colors">About</a></li>
+                <li><a href="#projects" class="hover:text-dark transition-colors">Projects</a></li>
+                <li><a href="#journey" class="hover:text-dark transition-colors">Journey</a></li>
+                <li><a href="#ama" class="hover:text-dark transition-colors">AMA</a></li>
+                <li><a href="#contact" class="px-4 py-2.5 rounded-xl border border-black/10 bg-surface text-dark hover:border-dark transition-all shadow-2xs">Let's Talk</a></li>
+            </ul>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="md:hidden text-xl text-dark p-2 focus:outline-none cursor-pointer" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="md:hidden hidden absolute top-full left-4 right-4 bg-surface border border-black/10 rounded-2xl p-5 shadow-xl flex flex-col gap-4">
+            <a href="#home" class="mobile-link text-muted font-medium hover:text-dark">Home</a>
+            <a href="#about" class="mobile-link text-muted font-medium hover:text-dark">About</a>
+            <a href="#projects" class="mobile-link text-muted font-medium hover:text-dark">Projects</a>
+            <a href="#journey" class="mobile-link text-muted font-medium hover:text-dark">Journey</a>
+            <a href="#ama" class="mobile-link text-muted font-medium hover:text-dark">AMA</a>
+            <a href="#contact" class="mobile-link text-center px-4 py-3 rounded-xl bg-dark text-bg font-semibold">Let's Talk</a>
+        </div>
     </nav>
 
-    <main class="layout">
-        <aside class="profile-card" id="about">
-            <div class="portrait"><img src="8.JPG" alt="Sushant Phuyal at MBMC Hackfest 2026"></div>
-            <h2>Sushant<br>Phuyal</h2>
-            <p>A BCA student and web developer from Kathmandu, building thoughtful interfaces and learning how ideas become useful products.</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/sushant-phuyal-6816b641a" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/sushantphuyal10" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="mailto:sushantphuyal007@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-        </aside>
+    <main id="home">
+        <section class="min-h-screen pt-32 pb-20 flex items-center">
+            <div class="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Left Copy -->
+                <div class="lg:col-span-7 reveal">
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-black/10 bg-black/[0.03] text-xs font-medium text-dark mb-6">
+                        <i class="fas fa-circle text-success text-[6px] animate-pulse"></i>
+                        <span>Software Developer in Progress</span>
+                    </div>
 
-        <section class="content-area">
-            <p class="eyebrow">KATHMANDU, NEPAL / 2026</p>
-            <h1 class="hero-title">WEB<span>DEVELOPER</span></h1>
-            <p class="description">Passionate about front-end design, system logic, and creating sleek, interactive web experiences. Currently pursuing a Bachelor in Computer Applications, 2nd semester.</p>
-            <div class="stats-grid">
-                <div class="stat-item"><h2>02</h2><p>Semester<br>in progress</p></div>
-                <div class="stat-item"><h2>01</h2><p>Hackathon<br>achievement</p></div>
-                <div class="stat-item"><h2>∞</h2><p>Ideas<br>in motion</p></div>
+                    <h1 class="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.05] mb-6">
+                        Hi, I am <span class="underline decoration-success decoration-wavy decoration-2 underline-offset-8">Sushant</span>.
+                    </h1>
+
+                    <p class="text-muted text-base sm:text-lg max-w-2xl mb-8 leading-relaxed">
+                        Aspiring full-stack, web, and game developer based in Kathmandu, Nepal. I enjoy learning by building—turning concepts into intuitive interfaces, robust applications, and interactive experiences.
+                    </p>
+
+                    <!-- Social Pills -->
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <a href="https://github.com/sushantphuyal29-dotcom" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-black/10 bg-surface text-sm font-medium hover:border-dark hover:-translate-y-0.5 transition-all shadow-2xs">
+                            <i class="fab fa-github text-base"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/sushant-phuyal" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-black/10 bg-surface text-sm font-medium hover:border-dark hover:-translate-y-0.5 transition-all shadow-2xs">
+                            <i class="fab fa-linkedin-in text-blue-600 text-base"></i> LinkedIn
+                        </a>
+                        <a href="https://www.instagram.com/sushantphuyal10" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-black/10 bg-surface text-sm font-medium hover:border-dark hover:-translate-y-0.5 transition-all shadow-2xs">
+                            <i class="fab fa-instagram text-pink-600 text-base"></i> Instagram
+                        </a>
+                        <a href="mailto:sushantphuyal007@gmail.com" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-black/10 bg-surface text-sm font-medium hover:border-dark hover:-translate-y-0.5 transition-all shadow-2xs">
+                            <i class="fas fa-envelope text-red-500 text-base"></i> Email
+                        </a>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <a href="#projects" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-dark text-bg font-semibold text-sm hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-md">
+                            View My Work <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#ama" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-black/10 bg-surface text-dark font-semibold text-sm hover:border-dark hover:-translate-y-0.5 transition-all shadow-2xs">
+                            Ask Me Anything <i class="fas fa-question-circle text-xs"></i>
+                        </a>
+                    </div>
+
+                    <div class="mt-8 flex items-center gap-3 text-muted text-xs font-medium">
+                        <span class="w-2 h-2 rounded-full bg-success"></span>
+                        <span>Currently learning, building &amp; experimenting in Kathmandu</span>
+                    </div>
+                </div>
+
+                <!-- Hero Right Profile Card -->
+                <div class="lg:col-span-5 flex justify-center reveal">
+                    <div class="w-full max-w-[340px] aspect-[4/5] border border-black/10 rounded-[32px] bg-surface p-4 shadow-2xl relative overflow-hidden rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <div class="w-full h-full rounded-[22px] border border-black/10 bg-surface2 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                            <!-- Avatar Circle -->
+                            <div class="w-36 h-36 rounded-full border border-black/10 bg-surface flex items-center justify-center font-display font-bold text-4xl overflow-hidden relative shadow-inner">
+                                SP
+                                <img src="photo.jpg" alt="Sushant Phuyal" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()">
+                            </div>
+                            <h3 class="font-display font-bold text-xl mt-5 text-dark">Sushant Phuyal</h3>
+                            <p class="text-muted text-xs font-medium mt-1">Developer · Designer · Builder</p>
+
+                            <!-- Floating Badges -->
+                            <div class="absolute top-[18%] -left-3 px-3 py-2 rounded-xl border border-black/10 bg-surface text-[11px] font-bold shadow-lg flex items-center gap-1.5 animate-bounce" style="animation-duration: 4s;">
+                                <i class="fas fa-code text-success"></i> Web Dev
+                            </div>
+                            <div class="absolute bottom-[22%] -right-3 px-3 py-2 rounded-xl border border-black/10 bg-surface text-[11px] font-bold shadow-lg flex items-center gap-1.5 animate-bounce" style="animation-duration: 5s;">
+                                <i class="fas fa-gamepad text-indigo-600"></i> Game Dev
+                            </div>
+                            <div class="absolute bottom-[8%] left-[12%] px-3 py-2 rounded-xl border border-black/10 bg-surface text-[11px] font-bold shadow-lg flex items-center gap-1.5 animate-bounce" style="animation-duration: 6s;">
+                                <i class="fas fa-bolt text-amber-600"></i> Hackathon
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section class="content-section reveal" id="skills">
-            <h2 class="section-heading">What I work with</h2>
-            <div class="skills"><span class="skill"><i class="fa-solid fa-c"></i>C PROGRAMMING</span><span class="skill"><i class="fa-brands fa-java"></i>JAVA</span><span class="skill"><i class="fa-solid fa-microchip"></i>MICROPROCESSORS</span><span class="skill"><i class="fa-solid fa-pen-ruler"></i>UI/UX DESIGN</span><span class="skill"><i class="fa-solid fa-code"></i>FRONT-END DEVELOPMENT</span></div>
-            <div id="work">
-                <p class="eyebrow">PROJECT / BLINKA</p>
-                <h2 class="project-heading"><i class="fa-solid fa-folder-open"></i>Project</h2>
-                <div class="project">
-                    <div class="project-copy"><p class="eyebrow">PROJECT NAME</p><h3><i class="fa-solid fa-bolt"></i> Blinka</h3><button class="button" type="button" onclick="openModal('3.png')"><i class="fa-solid fa-award"></i> View certificate</button></div>
+        <section id="about" class="py-28 bg-white/50 border-y border-black/5">
+            <div class="max-w-6xl mx-auto px-6">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 reveal">
+                    <div>
+                        <span class="text-muted text-xs font-bold uppercase tracking-[0.18em]">01 / About</span>
+                        <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight mt-2">A little about me.</h2>
+                    </div>
+                    <p class="text-muted text-sm sm:text-base max-w-md">
+                        Student today, developer in progress. My goal is to keep learning and build increasingly ambitious software solutions.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Bio Panel -->
+                    <div class="lg:col-span-6 bg-surface border border-black/10 rounded-3xl p-8 shadow-sm hover:border-black/30 transition-all reveal flex flex-col justify-between">
+                        <div class="space-y-4 text-muted text-sm sm:text-base">
+                            <p>
+                                I'm currently pursuing a Bachelor in Computer Applications (BCA) at Tribhuvan University. My coursework provides a robust foundation in programming paradigms, digital logic, web technologies, and software architecture.
+                            </p>
+                            <p>
+                                Beyond coursework, I love building hands-on projects ranging from web applications to interactive game prototypes. Recently, I also took part in a collegiate hackathon where my team built and pitched <strong>Blinka</strong>.
+                            </p>
+                            <p>
+                                My primary focus is mastering full-stack development—understanding the complete journey from user interface design to backend database optimization.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Skills Matrix -->
+                    <div class="lg:col-span-6 bg-surface border border-black/10 rounded-3xl p-8 shadow-sm hover:border-black/30 transition-all reveal">
+                        <span class="text-xs font-bold uppercase tracking-wider text-muted mb-6 block">What I work on</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-5 rounded-2xl border border-black/10 bg-bg transition-transform hover:-translate-y-1">
+                                <i class="fas fa-globe text-success text-xl mb-3"></i>
+                                <strong class="block text-sm font-semibold text-dark">Web Development</strong>
+                                <span class="text-xs text-muted">Responsive websites &amp; modern interfaces</span>
+                            </div>
+                            <div class="p-5 rounded-2xl border border-black/10 bg-bg transition-transform hover:-translate-y-1">
+                                <i class="fas fa-layer-group text-indigo-600 text-xl mb-3"></i>
+                                <strong class="block text-sm font-semibold text-dark">Full-Stack</strong>
+                                <span class="text-xs text-muted">Frontend architecture to backend logic</span>
+                            </div>
+                            <div class="p-5 rounded-2xl border border-black/10 bg-bg transition-transform hover:-translate-y-1">
+                                <i class="fas fa-gamepad text-purple-600 text-xl mb-3"></i>
+                                <strong class="block text-sm font-semibold text-dark">Game Development</strong>
+                                <span class="text-xs text-muted">Interactive 3D worlds &amp; game mechanics</span>
+                            </div>
+                            <div class="p-5 rounded-2xl border border-black/10 bg-bg transition-transform hover:-translate-y-1">
+                                <i class="fas fa-pen-ruler text-pink-600 text-xl mb-3"></i>
+                                <strong class="block text-sm font-semibold text-dark">UI / UX Design</strong>
+                                <span class="text-xs text-muted">Clean, intuitive user experiences</span>
+                            </div>
+                            <div class="p-5 rounded-2xl border border-black/10 bg-bg transition-transform hover:-translate-y-1">
+                                <i class="fas fa-code text-amber-600 text-xl mb-3"></i>
+                                <strong class="block text-sm font-semibold text-dark">Programming</strong>
+                                <span class="text-xs text-muted">C, Java &amp; structured problem solving</span>
+                            </div>
+                            <div class="p-5 rounded-2xl border border-black/10 bg-bg transition-transform hover:-translate-y-1">
+                                <i class="fas fa-people-group text-teal-600 text-xl mb-3"></i>
+                                <strong class="block text-sm font-semibold text-dark">Team Projects</strong>
+                                <span class="text-xs text-muted">Hackathons &amp; agile collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects" class="py-28">
+            <div class="max-w-6xl mx-auto px-6">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 reveal">
+                    <div>
+                        <span class="text-muted text-xs font-bold uppercase tracking-[0.18em]">02 / Selected Work</span>
+                        <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight mt-2">Things I've built.</h2>
+                    </div>
+                    <p class="text-muted text-sm sm:text-base max-w-md">
+                        A growing portfolio of applications, hackathon prototypes, and exploratory projects reflecting my growth.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Project 1 -->
+                    <article class="bg-surface border border-black/10 rounded-3xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-black/30 hover:shadow-xl reveal flex flex-col justify-between min-h-[320px]">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-bg border border-black/10 flex items-center justify-center text-dark text-lg shadow-xs">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-xl sm:text-2xl mt-6 mb-2">Blinka</h3>
+                            <p class="text-muted text-sm leading-relaxed mb-16">
+                                A service-focused application concept ideated and built during a collegiate hackathon. It connects everyday users with nearby verified plumbers to resolve emergency plumbing issues instantly.
+                            </p>
+                        </div>
+                        <div class="absolute bottom-8 left-8 right-8 flex items-center justify-between pt-4 border-t border-black/5">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">Hackathon</span>
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">UI/UX</span>
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">Concept</span>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl border border-black/10 bg-bg flex items-center justify-center text-dark">
+                                <i class="fas fa-lightbulb text-amber-500"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="bg-surface border border-black/10 rounded-3xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-black/30 hover:shadow-xl reveal flex flex-col justify-between min-h-[320px]">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-bg border border-black/10 flex items-center justify-center text-dark text-lg shadow-xs">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-xl sm:text-2xl mt-6 mb-2">Personal Portfolio</h3>
+                            <p class="text-muted text-sm leading-relaxed mb-16">
+                                A modern developer portfolio designed from scratch to highlight my background, skills, projects, and contact avenues while continuously evolving with my technical stack.
+                            </p>
+                        </div>
+                        <div class="absolute bottom-8 left-8 right-8 flex items-center justify-between pt-4 border-t border-black/5">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">HTML5</span>
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">Tailwind</span>
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">JavaScript</span>
+                            </div>
+                            <a href="https://github.com/sushantphuyal29-dotcom" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl border border-black/10 bg-bg flex items-center justify-center text-dark hover:bg-dark hover:text-bg transition-colors" aria-label="View on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="bg-surface border border-black/10 rounded-3xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-black/30 hover:shadow-xl reveal flex flex-col justify-between min-h-[320px]">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-bg border border-black/10 flex items-center justify-center text-dark text-lg shadow-xs">
+                                <i class="fas fa-ghost"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-xl sm:text-2xl mt-6 mb-2">Horror Game — In Progress</h3>
+                            <p class="text-muted text-sm leading-relaxed mb-16">
+                                An atmospheric first-person horror game concept centered around tension, exploration, and immersive audio-visual cues. Currently experimenting with Unreal Engine mechanics.
+                            </p>
+                        </div>
+                        <div class="absolute bottom-8 left-8 right-8 flex items-center justify-between pt-4 border-t border-black/5">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">Unreal Engine</span>
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">Game Dev</span>
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">3D</span>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl border border-black/10 bg-bg flex items-center justify-center text-dark">
+                                <i class="fas fa-gamepad text-purple-600"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="bg-surface border border-black/10 rounded-3xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-black/30 hover:shadow-xl reveal flex flex-col justify-between min-h-[320px]">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-bg border border-black/10 flex items-center justify-center text-dark text-lg shadow-xs">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-xl sm:text-2xl mt-6 mb-2">More Experiments</h3>
+                            <p class="text-muted text-sm leading-relaxed mb-16">
+                                A sandbox collection of mini programming scripts, UI interaction tests, algorithm challenges, and early backend builds added regularly as I expand my engineering toolkit.
+                            </p>
+                        </div>
+                        <div class="absolute bottom-8 left-8 right-8 flex items-center justify-between pt-4 border-t border-black/5">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">Learning</span>
+                                <span class="text-[11px] font-medium text-muted px-2.5 py-1 rounded-lg border border-black/10 bg-bg">Sandbox</span>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl border border-black/10 bg-bg flex items-center justify-center text-dark">
+                                <i class="fas fa-plus text-success"></i>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
 
-        <section class="contact-section reveal" id="contact">
-            <div class="contact-info-col">
-                <p class="eyebrow">GET IN TOUCH</p>
-                <h2 class="contact-heading">Let's work<br><span class="highlight-word">together.</span></h2>
-                <p class="contact-desc">Have a project in mind or just want to say hi? Feel free to reach out. I would love to hear from you.</p>
-                <div class="info-card"><div class="icon-box"><i class="fa-solid fa-envelope"></i></div><div class="info-text"><h3>Email</h3><a href="mailto:sushantphuyal007@gmail.com">sushantphuyal007@gmail.com</a></div></div>
-                <div class="info-card"><div class="icon-box"><i class="fa-solid fa-location-dot"></i></div><div class="info-text"><h3>Location</h3><p>Kathmandu, Nepal</p></div></div>
-                <h3 class="connect-heading">Let's connect</h3>
-                <div class="social-row">
-                    <a class="social-btn" href="https://www.linkedin.com/in/sushant-phuyal-6816b641a" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a class="social-btn" href="https://www.instagram.com/sushantphuyal10" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a class="social-btn" href="mailto:sushantphuyal007@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <section id="journey" class="py-28 bg-white/50 border-y border-black/5">
+            <div class="max-w-6xl mx-auto px-6">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 reveal">
+                    <div>
+                        <span class="text-muted text-xs font-bold uppercase tracking-[0.18em]">03 / Journey</span>
+                        <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight mt-2">Where I'm heading.</h2>
+                    </div>
+                    <p class="text-muted text-sm sm:text-base max-w-md">
+                        Focused on building core fundamentals first, then translating them into impactful software projects.
+                    </p>
                 </div>
-            </div>
-            <div class="contact-form-card">
-                <h2 class="form-heading">Send me a message</h2>
-                <p class="form-subheading">I will get back to you as soon as possible.</p>
-                <form onsubmit="sendMessage(event)">
-                    <div class="form-row"><div class="form-group"><label for="name">Your name</label><input id="name" name="name" type="text" placeholder="Enter your name" required></div><div class="form-group"><label for="email">Your email</label><input id="email" name="email" type="email" placeholder="Enter your email" required></div></div>
-                    <div class="form-group"><label for="subject">Subject</label><input id="subject" name="subject" type="text" placeholder="Enter subject" required></div>
-                    <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Write your message..." required></textarea></div>
-                    <button type="submit" class="submit-btn">Send message <i class="fa-regular fa-paper-plane"></i></button>
-                </form>
+
+                <div class="space-y-4">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start reveal">
+                        <div class="md:col-span-3 text-sm font-bold text-muted pt-4">
+                            <span class="inline-block px-3 py-1 rounded-lg bg-dark text-bg text-xs">NOW · 2026</span>
+                        </div>
+                        <div class="md:col-span-9 bg-surface border border-black/10 rounded-3xl p-8 shadow-sm">
+                            <h3 class="font-display font-bold text-xl mb-2">Building the foundation</h3>
+                            <p class="text-muted text-sm leading-relaxed">
+                                Deepening my expertise in structured programming, computer architecture, web engineering, UI/UX design, algorithms, and analytical problem-solving.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start reveal">
+                        <div class="md:col-span-3 text-sm font-bold text-muted pt-4">
+                            <span class="inline-block px-3 py-1 rounded-lg border border-black/10 bg-surface text-xs">RECENT</span>
+                        </div>
+                        <div class="md:col-span-9 bg-surface border border-black/10 rounded-3xl p-8 shadow-sm">
+                            <h3 class="font-display font-bold text-xl mb-2">Collegiate Hackathon Experience</h3>
+                            <p class="text-muted text-sm leading-relaxed">
+                                Collaborated in a cross-functional team to build and pitch <strong>Blinka</strong> under tight deadlines, gaining invaluable exposure to rapid prototyping and pitching.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start reveal">
+                        <div class="md:col-span-3 text-sm font-bold text-muted pt-4">
+                            <span class="inline-block px-3 py-1 rounded-lg border border-black/10 bg-surface text-xs">NEXT</span>
+                        </div>
+                        <div class="md:col-span-9 bg-surface border border-black/10 rounded-3xl p-8 shadow-sm">
+                            <h3 class="font-display font-bold text-xl mb-2">Full-Stack Engineering</h3>
+                            <p class="text-muted text-sm leading-relaxed">
+                                Master advanced frontend frameworks, backend API design, database modeling, secure authentication workflows, Git version control, and production deployment.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start reveal">
+                        <div class="md:col-span-3 text-sm font-bold text-muted pt-4">
+                            <span class="inline-block px-3 py-1 rounded-lg border border-black/10 bg-surface text-xs">LONG TERM</span>
+                        </div>
+                        <div class="md:col-span-9 bg-surface border border-black/10 rounded-3xl p-8 shadow-sm">
+                            <h3 class="font-display font-bold text-xl mb-2">Web + Game Developer</h3>
+                            <p class="text-muted text-sm leading-relaxed">
+                                Establish a professional career as a versatile full-stack developer while continuing to craft compelling interactive games and immersive virtual experiences.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
-        <footer class="reveal">
-            <div class="footer-grid">
-                <div><div class="brand-header"><div class="brand-logo">SP</div><div class="brand-title"><h3>Sushant Phuyal</h3><p>Web Developer</p></div></div><p class="brand-desc">I build thoughtful interfaces and practical digital experiences while growing as a developer.</p></div>
-                <div><h3 class="footer-heading">Quick links</h3><ul class="footer-links"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#work">Project</a></li><li><a href="#contact">Contact</a></li></ul></div>
-                <div><h3 class="footer-heading">What I do</h3><div class="service-item"><div class="icon-box"><i class="fa-solid fa-code"></i></div><span>Front-end development</span></div><div class="service-item"><div class="icon-box"><i class="fa-solid fa-pen-ruler"></i></div><span>UI/UX design</span></div><div class="service-item"><div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div><span>Programming projects</span></div></div>
+        <section id="ama" class="py-28">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="border border-black/10 rounded-[32px] p-8 sm:p-14 text-center bg-surface shadow-xl relative overflow-hidden reveal">
+                    <span class="text-muted text-xs font-bold uppercase tracking-[0.18em]">04 / AMA</span>
+                    <h2 class="font-display font-bold text-3xl sm:text-5xl tracking-tight mt-2 mb-4">Ask Me Anything.</h2>
+                    <p class="text-muted text-sm sm:text-base max-w-xl mx-auto mb-8">
+                        Have a question about my projects, coding journey, tech stacks, or anything else? Type it below and send it directly to my inbox.
+                    </p>
+                    
+                    <div class="max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
+                        <input type="text" id="amaInput" class="flex-1 px-5 py-3.5 rounded-xl border border-black/10 bg-bg text-dark text-sm focus:outline-none focus:border-dark transition-colors" placeholder="Type your question here..." aria-label="Your question">
+                        <button class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-dark text-bg font-semibold text-sm hover:opacity-90 transition-opacity cursor-pointer shadow-md" id="amaBtn" type="button">
+                            Submit Question <i class="fas fa-paper-plane text-xs"></i>
+                        </button>
+                    </div>
+                    <p id="amaNotice" class="mt-4 text-xs text-muted" aria-live="polite"></p>
+                </div>
             </div>
-            <p class="copyright">© 2026 Sushant Phuyal. Built in Kathmandu. <a href="mailto:sushantphuyal007@gmail.com">Say hello.</a></p>
-        </footer>
+        </section>
+
+        <section id="contact" class="py-20">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="border border-black/10 rounded-[32px] p-8 sm:p-14 text-center bg-surface2 shadow-xl relative overflow-hidden reveal">
+                    <span class="text-muted text-xs font-bold uppercase tracking-[0.18em]">05 / Contact</span>
+                    <h2 class="font-display font-bold text-3xl sm:text-5xl tracking-tight mt-2 mb-4">Let's build something.</h2>
+                    <p class="text-muted text-sm sm:text-base max-w-xl mx-auto mb-8">
+                        Have a project proposal, collaboration idea, or simply want to connect? I'm always open to meeting fellow builders and creators.
+                    </p>
+                    
+                    <a href="mailto:sushantphuyal007@gmail.com" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-dark text-bg font-semibold text-sm hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-lg mb-8">
+                        <i class="fas fa-envelope"></i> sushantphuyal007@gmail.com
+                    </a>
+
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <a href="https://github.com/sushantphuyal29-dotcom" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-black/10 bg-surface text-xs font-semibold hover:border-black transition-all shadow-2xs">
+                            <span class="w-7 h-7 rounded-lg bg-black/5 flex items-center justify-center text-dark"><i class="fab fa-github"></i></span> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/sushant-phuyal" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-black/10 bg-surface text-xs font-semibold hover:border-black transition-all shadow-2xs">
+                            <span class="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600"><i class="fab fa-linkedin-in"></i></span> LinkedIn
+                        </a>
+                        <a href="https://www.instagram.com/sushantphuyal10" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-black/10 bg-surface text-xs font-semibold hover:border-black transition-all shadow-2xs">
+                            <span class="w-7 h-7 rounded-lg bg-pink-50 flex items-center justify-center text-pink-600"><i class="fab fa-instagram"></i></span> Instagram
+                        </a>
+                        <a href="mailto:sushantphuyal007@gmail.com" class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-black/10 bg-surface text-xs font-semibold hover:border-black transition-all shadow-2xs">
+                            <span class="w-7 h-7 rounded-lg bg-red-50 flex items-center justify-center text-red-600"><i class="fas fa-envelope"></i></span> Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Certificate preview" onclick="closeModal(event)"><button type="button" aria-label="Close preview" onclick="closeModal(event)">&times;</button><img id="modalImg" alt="Certificate of achievement"></div>
+    <footer class="border-t border-black/10 py-8 bg-surface">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted font-medium">
+            <span>© <span id="year">2026</span> Sushant Phuyal. Built with curiosity &amp; passion.</span>
+            <span>Software Developer · Builder</span>
+        </div>
+    </footer>
+
     <script>
-        function openModal(imageSource) { document.getElementById('modalImg').src = imageSource; document.getElementById('imageModal').classList.add('open'); }
-        function closeModal(event) { if (!event || event.target.id === 'imageModal' || event.target.tagName === 'BUTTON') document.getElementById('imageModal').classList.remove('open'); }
-        function sendMessage(event) { event.preventDefault(); const form = event.target; const subject = encodeURIComponent(form.subject.value); const body = encodeURIComponent('Name: ' + form.name.value + '\nEmail: ' + form.email.value + '\n\n' + form.message.value); window.location.href = 'mailto:sushantphuyal007@gmail.com?subject=' + subject + '&body=' + body; }
-        const revealItems = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver(function (entries, observer) {
-            entries.forEach(function (entry) {
+        // Interactive Ambient Particle / Grid Mouse Tracker Canvas
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+        let mouse = { x: -1000, y: -1000, radius: 140 };
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles();
+        }
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.6;
+                this.vy = (Math.random() - 0.5) * 0.6;
+                this.radius = Math.random() * 1.8 + 1;
+                this.baseAlpha = Math.random() * 0.25 + 0.15;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+                    this.reset();
+                }
+
+                // Mouse interaction repulsion/attraction
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    const force = (mouse.radius - dist) / mouse.radius;
+                    const angle = Math.atan2(dy, dx);
+                    this.x -= Math.cos(angle) * force * 2.5;
+                    this.y -= Math.sin(angle) * force * 2.5;
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(20, 20, 20, ${this.baseAlpha})`;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((width * height) / 18000);
+            for (let i = 0; i < Math.max(35, Math.min(count, 90)); i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw subtle connecting lines for nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(13, 148, 136, ${0.15 * (1 - dist / 120)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw soft cursor glow orb
+            if (mouse.x > 0 && mouse.y > 0) {
+                const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 180);
+                gradient.addColorStop(0, 'rgba(13, 148, 136, 0.08)');
+                gradient.addColorStop(1, 'rgba(243, 240, 234, 0)');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, width, height);
+            }
+
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+        window.addEventListener('mouseleave', () => {
+            mouse.x = -1000;
+            mouse.y = -1000;
+        });
+
+        resizeCanvas();
+        animateCanvas();
+
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        function toggleMenu(forceState) {
+            const isOpen = forceState !== undefined ? forceState : mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                menuBtn.innerHTML = '<i class="fas fa-xmark"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu());
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        // Current Year Update
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for Scroll Reveal Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                } else {
-                    entry.target.classList.remove('is-visible');
+                    entry.target.classList.add('show');
+                    obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12 });
-        revealItems.forEach(function (item) { revealObserver.observe(item); });
-        document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeModal(); });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // AMA Form Handling
+        const EMAIL = 'sushantphuyal007@gmail.com';
+        function submitAMA() {
+            const input = document.getElementById('amaInput');
+            const notice = document.getElementById('amaNotice');
+            const question = input.value.trim();
+
+            if (!question) {
+                notice.textContent = 'Please type a question before submitting.';
+                notice.style.color = '#ef4444';
+                return;
+            }
+
+            const subject = encodeURIComponent('Portfolio AMA Question');
+            const body = encodeURIComponent(question);
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${EMAIL}&su=${subject}&body=${body}`;
+            
+            notice.style.color = 'var(--muted)';
+            notice.innerHTML = `Opening your mail client... If nothing opens, <a href="${gmailUrl}" target="_blank" rel="noopener" class="underline font-semibold text-dark">send via Gmail</a>.`;
+            
+            window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+        }
+
+        document.getElementById('amaBtn').addEventListener('click', submitAMA);
+        document.getElementById('amaInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') submitAMA();
+        });
     </script>
 </body>
 </html>
